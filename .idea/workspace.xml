@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2578d48a-4d10-4603-ab10-9c1e6eb9a3a8" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/tests/test_group_add.py" afterPath="$PROJECT_DIR$/tests/test_add_group.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fixture/one.py" afterPath="$PROJECT_DIR$/fixture/application.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/fixture/two.py" afterPath="$PROJECT_DIR$/fixture/session.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/conftest.py" afterPath="$PROJECT_DIR$/conftest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fixture/group.py" afterPath="$PROJECT_DIR$/fixture/group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/model/group.py" afterPath="$PROJECT_DIR$/model/group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test_add_contact.py" afterPath="$PROJECT_DIR$/tests/test_add_contact.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test_del_contact.py" afterPath="$PROJECT_DIR$/tests/test_del_contact.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test_del_group.py" afterPath="$PROJECT_DIR$/tests/test_del_group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test_edit_first_contact.py" afterPath="$PROJECT_DIR$/tests/test_edit_first_contact.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/test_edit_first_group.py" afterPath="$PROJECT_DIR$/tests/test_edit_first_group.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -502,14 +495,14 @@
     <history-entry file="py_test_in_test_add_group_py - 2017.04.30 at 00h 15m 43s.xml">
       <configuration name="py.test in test_add_group.py" configurationId="tests" />
     </history-entry>
+    <history-entry file="py_test_in_test_add_group_py - 2017.04.30 at 00h 20m 04s.xml">
+      <configuration name="py.test in test_add_group.py" configurationId="tests" />
+    </history-entry>
     <history-entry file="py_test_in_test_edit_first_group_py - 2017.04.29 at 23h 14m 24s.xml">
       <configuration name="py.test in test_edit_first_group.py" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_test_edit_first_group_py - 2017.04.29 at 23h 16m 18s.xml">
       <configuration name="py.test in test_edit_first_group.py" configurationId="tests" />
-    </history-entry>
-    <history-entry file="py_test_in_tests - 2017.04.26 at 01h 40m 26s.xml">
-      <configuration name="py.test in tests" configurationId="tests" />
     </history-entry>
     <history-entry file="py_test_in_tests - 2017.04.26 at 01h 41m 59s.xml">
       <configuration name="py.test in tests" configurationId="tests" />
