@@ -4,8 +4,21 @@ from model.group import Group
 
 
 def test_group_add(app):
-    app.group.create(Group(name="3", header="33", footer="333"))
+    old_groups = app.group.get_group_list()
+    group = Group(name="3", header="33", footer="333")
+    app.group.create(group)
+    new_groups = app.group.get_group_list()
+    assert len(old_groups) + 1 == len(new_groups)
+    old_groups.append(group)
+    assert sorted(old_groups, key=Group.id_or_map) == sorted(new_groups, key=Group.id_or_map)
 
 def test_group_empty_add(app):
-    app.group.create(Group(name="", header="", footer=""))
+    old_groups = app.group.get_group_list()
+    group = Group(name="", header="", footer="")
+    app.group.create(group)
+    new_groups = app.group.get_group_list()
+    assert len(old_groups) + 1 == len(new_groups)
+    old_groups.append(group)
+    assert sorted(old_groups, key=Group.id_or_map) == sorted(new_groups, key=Group.id_or_map)
+
 
