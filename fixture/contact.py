@@ -20,28 +20,36 @@ class ContactHelper:
         self.fill_field_value(contact)
         wd.find_element_by_name("submit").click()
         self.return_to_contact_list()
+        self.contact_cashe = None
 
-    def delete_first_contact(self):
+    def delete_contact_by_index(self, index):
         wd = self.app.wd
         self.open_contact_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         wd.find_element_by_xpath("//input[@value=\"Delete\"]").click()
         wd.switch_to_alert().accept()
         self.open_contact_page()
+        self.contact_cashe = None
 
+    def delete_first_contact(self):
+        self.delete_contact_by_index(0)
 
-    def select_first_contact(self):
+    def select_contact_by_index(self, index):
         wd = self.app.wd
-        wd.find_element_by_name("selected[]").click()
+        wd.find_elements_by_name("selected[]")[index].click()
 
-    def edit_first_contact(self, contact):
+    def edit_contact_by_index(self, index, contact):
         wd = self.app.wd
         self.open_contact_page()
-        self.select_first_contact()
+        self.select_contact_by_index(index)
         wd.find_element_by_xpath("//img[@src=\"icons/pencil.png\"]").click()
         self.fill_field_value(contact)
         wd.find_element_by_name("update").click()
         self.return_to_contact_list()
+        self.contact_cashe = None
+
+    def edit_first_contact(self, contact):
+        self.edit_contact_by_index(0, contact)
 
     def open_contact_page(self):
         wd = self.app.wd
@@ -80,15 +88,17 @@ class ContactHelper:
         self.open_contact_page()
         return len(wd.find_elements_by_name("selected[]"))
 
+    contact_cashe = None
+
     def get_contact_list(self):
-        wd = self.app.wd
-        self.open_contact_page()
-        group = []
-        for element in wd.find_elements_by_name("entry"):
-            id = element.find_elements_by_name("selected[]")[0].get_attribute("value")
-            e = element.find_elements_by_css_selector("td")
-            firstName= e[2].text
-            lastName= e[1].text
-            group.append(Contact(firstName= firstName, lastName= lastName, id=id))
-        group2 = group
-        return group
+        if self.contact_cashe is None:
+            wd = self.app.wd
+            self.open_contact_page()
+            self.contact_cashe = []
+            for element in wd.find_elements_by_name("entry"):
+                id = element.find_elements_by_name("selected[]")[0].get_attribute("value")
+                e = element.find_elements_by_css_selector("td")
+                firstName= e[2].text
+                lastName= e[1].text
+                self.contact_cashe.append(Contact(firstName= firstName, lastName= lastName, id=id))
+        return list(self.contact_cashe)
