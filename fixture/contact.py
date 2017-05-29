@@ -34,6 +34,10 @@ class ContactHelper:
     def delete_first_contact(self):
         self.delete_contact_by_index(0)
 
+    def select_first_contact(self):
+        wd = self.app.wd
+        wd.find_element_by_name("selected[]").click()
+
     def select_contact_by_index(self, index):
         wd = self.app.wd
         wd.find_elements_by_name("selected[]")[index].click()
@@ -42,7 +46,7 @@ class ContactHelper:
         wd = self.app.wd
         self.open_contact_page()
         self.select_contact_by_index(index)
-        wd.find_element_by_xpath("//img[@src=\"icons/pencil.png\"]").click()
+        wd.find_elements_by_xpath("//img[@src=\"icons/pencil.png\"]")[index].click()
         self.fill_field_value(contact)
         wd.find_element_by_name("update").click()
         self.return_to_contact_list()
