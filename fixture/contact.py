@@ -107,7 +107,7 @@ class ContactHelper:
                 all_phones = e[5].text
                 all_mail = e[4].text
                 address = e[3].text
-                self.contact_cashe.append(Contact(firstName= firstName, lastName= lastName, id=id,address=address,
+                self.contact_cashe.append(Contact(firstName= firstName, lastName= lastName, id=id, address=address,
                                                   all_phones_from_home_page = all_phones, all_mail=all_mail))
         return list(self.contact_cashe)
 
