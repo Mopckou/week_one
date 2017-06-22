@@ -68,6 +68,23 @@ class ContactHelper:
     def edit_first_contact(self, contact):
         self.edit_contact_by_index(0, contact)
 
+    def edit_contact_by_id(self, id, contact):
+        wd = self.app.wd
+        self.open_contact_page()
+        self.open_contact_to_edit_by_id(id)
+        self.fill_field_value(contact)
+        wd.find_element_by_name("update").click()
+        self.return_to_contact_list()
+        self.contact_cashe = None
+
+    def open_contact_to_edit_by_id(self, id):
+        wd = self.app.wd
+        for element in wd.find_elements_by_name("entry"):
+            if id == element.find_elements_by_name("selected[]")[0].get_attribute("value"):
+                cell = element.find_elements_by_tag_name("td")[7]
+                cell.find_element_by_tag_name("a").click()
+                break
+
     def open_contact_page(self):
         wd = self.app.wd
         if not (wd.current_url.endswith('/') and len(wd.find_elements_by_name("add")) > 0):
